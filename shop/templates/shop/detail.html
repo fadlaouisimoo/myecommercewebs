@@ -1,0 +1,26 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <img src="{{ product.image }}" width="550px" height="550px" alt="" style="margin-top: 20px; margin-left: -40px;">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="display-3" style="margin-top: 30px; font-family: Arial, Helvetica, sans-serif; color: rgb(219, 108, 16); font-weight: 700;">
+                {{ product.title }}
+            </div>
+            <div class="text-danger" style="margin-top: 30px;margin-bottom: 20px; font-size:x-large;font-family: kanit, sans-serif;font-weight: 600;font-style: normal;" >
+               Prix: ${{ product.price }}
+            </div>
+            <div style="font-family: Reddit Sans, sans-serif;font-optical-sizing: auto;font-weight: 400;font-style: normal; line-height: 30px;">
+                {{ product.description|linebreaksbr }}
+            </div>
+            <a href="#"><button class="btn btn-success" style="margin-top: 10px;">Acheter</button></a>
+        </div>
+    </div>
+
+{% endblock %}
+
+
