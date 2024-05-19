@@ -5,7 +5,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jersey+25+Charted&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jersey+25+Charted&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">  
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shopping </title>
@@ -15,7 +16,7 @@
   <script src="https://kit.fontawesome.com/a8689a1474.js" crossorigin="anonymous"></script>
 </head>
 
-<body >
+<body>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -28,26 +29,19 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  
                   <a style="margin-left:30px; " class="nav-link" aria-current="page" href="{% url  'home'%}"><i class="fa-solid fa-house" style="margin-right: 8px ; "></i><b>Accueil</b></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="" style="margin-left: 30px;"> <i style="margin-right: 8px ; " class="fa-solid fa-store"></i><b>Produits</b></a>
                 </li>
                 <li class="nav-item">
                   <button style="background-color: rgb(37, 158, 118);margin-left: 20px;" id="panier" type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="Bottom popover">
                     <i class="fa-solid fa-cart-shopping" style="margin-right: 8px;"></i><b>Panier(0)</b>
                   </button>
                 </li>
-                <li class="nav-item dropdown">
-                  <a style="margin-left:30px;" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-list" style="margin-right: 8px;"></i><b>Categories</b>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action 1</a></li>
-                    <li><a class="dropdown-item" href="#">Action 2</a></li>
-                    <li><a class="dropdown-item" href="#">Action 3</a></li>
-                  </ul>
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contact' %}" style="margin-left: 30px;"><i class="fa-solid fa-info-circle" style="margin-right: 8px;"></i><b>Contact</b></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'about' %}" style="margin-left: 30px;"><i class="fa-solid fa-address-card" style="margin-right: 8px;"></i><b>About</b></a>
                 </li>
               </ul>
             </div>
@@ -58,7 +52,6 @@
 
     {% block content %}{% endblock %}
   </div>
-  
 </body>
 {% block js %}{% endblock %}
 </html>

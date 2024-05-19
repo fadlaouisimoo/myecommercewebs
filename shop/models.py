@@ -38,3 +38,4 @@ class Commande(models.Model):
         ordering = ['-date_commande']
     def __str__(self):
         return self.nom   
+

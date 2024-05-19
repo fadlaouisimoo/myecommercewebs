@@ -39,3 +39,9 @@ def confimation(request):
     for item in info:
         nom = item.nom
     return render(request, 'shop/confirmation.html', {'name': nom})    
+
+def contact(request):
+    return render(request, 'shop/contact.html')
+
+def about(request):
+    return render(request, 'shop/about.html')
