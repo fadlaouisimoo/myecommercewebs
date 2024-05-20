@@ -8,7 +8,6 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 
 # Create your views here.
-@login_required
 def index(request):
     product_object = Product.objects.all()
     item_name = request.GET.get('item-name')
@@ -19,7 +18,6 @@ def index(request):
     product_object = paginator.get_page(page)
     return render(request, 'shop/index.html', {'product_object': product_object})
 
-@login_required
 def detail(request, myid):
     product_object = Product.objects.get(id=myid)
     return render(request, 'shop/detail.html', {'product': product_object}) 
@@ -49,11 +47,10 @@ def confimation(request):
         nom = item.nom
     return render(request, 'shop/confirmation.html', {'name': nom})    
 
-@login_required
 def contact(request):
     return render(request, 'shop/contact.html')
 
-@login_required
+
 def about(request):
     return render(request, 'shop/about.html')
 
