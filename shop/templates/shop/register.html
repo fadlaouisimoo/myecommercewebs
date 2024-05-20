@@ -1,0 +1,19 @@
+<!-- shop/templates/shop/register.html -->
+{% extends "shop/base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card my-5">
+      <div class="card-body">
+        <h3 class="card-title text-center" style="margin-bottom: 30px;"> <strong>Register</strong></h3>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button style="margin-top: 40px; width: 20%; margin-left:40%; margin-bottom: 20px;" type="submit" class="btn btn-primary ">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

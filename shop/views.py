@@ -1,8 +1,14 @@
 from django.shortcuts import render,redirect
 from .models import Product, Commande
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
+@login_required
 def index(request):
     product_object = Product.objects.all()
     item_name = request.GET.get('item-name')
@@ -13,10 +19,12 @@ def index(request):
     product_object = paginator.get_page(page)
     return render(request, 'shop/index.html', {'product_object': product_object})
 
+@login_required
 def detail(request, myid):
     product_object = Product.objects.get(id=myid)
     return render(request, 'shop/detail.html', {'product': product_object}) 
 
+@login_required
 def checkout(request):
     if request.method == "POST":
         items = request.POST.get('items')
@@ -34,14 +42,36 @@ def checkout(request):
 
     return render(request, 'shop/checkout.html') 
 
+@login_required
 def confimation(request):
     info = Commande.objects.all()[:1]
     for item in info:
         nom = item.nom
     return render(request, 'shop/confirmation.html', {'name': nom})    
 
+@login_required
 def contact(request):
     return render(request, 'shop/contact.html')
 
+@login_required
 def about(request):
     return render(request, 'shop/about.html')
+
+def custom_logout(request):
+    logout(request)
+    return redirect('home')
+
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            # Log the user in after registration
+            login(request, user)
+            messages.success(request, 'Account created successfully!')
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'shop/register.html', {'form': form})
