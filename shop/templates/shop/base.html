@@ -52,11 +52,11 @@
                     <span style="margin-left:30px; font-family: monospace;" class="navbar-text me-2"><i class="fa-solid fa-user" style="margin-right: -6px;"></i> <b>{{ user.username }}</b></span>
                   </li>
               <li class="nav-item">
-                  <a style="margin-left: 30px;" class="nav-link" href="{% url 'logout' %}"><i class="fa-solid fa-sign-out-alt" style="margin-right: 8px;"></i> <b>Logout</b></a>
+                  <a style="margin-left: 30px;" class="nav-link" href="{% url 'logout' %}"><i class="fa-solid fa-sign-out-alt" style="margin-right: 8px;"></i> <b> Logout</b></a>
               </li>
               {% else %}
               <li class="nav-item">
-                  <a style="margin-left: 30px;" class="nav-link" href="{% url 'login' %}"><i class="fa-solid fa-sign-in-alt" style="margin-right: 8px;"></i> <b>Login</b></a>
+                  <a style="margin-left: 30px;" class="nav-link" href="{% url 'login' %}"><i class="fa-solid fa-sign-in-alt" style="margin-right: 8px;"></i> <b> Login</b></a>
               </li>
               {% endif %}
           </ul>
